@@ -29,3 +29,42 @@ it("adds numbers", () => {
   fireEvent.click(addButton);
   expect(resultArea).toHaveTextContent("13");
 });
+
+it("subtracts numbers", () => {
+  render(<Home />);
+  // check if adds properly
+  const num1input = screen.getByTestId("num1");
+  const num2input = screen.getByTestId("num2");
+  const subtractButton = screen.getByTestId("subtract");
+  const resultArea = screen.getByTestId("result");
+  fireEvent.change(num1input, { target: { value: 8 } });
+  fireEvent.change(num2input, { target: { value: 5 } });
+  fireEvent.click(subtractButton);
+  expect(resultArea).toHaveTextContent("3");
+});
+
+it("multiplies numbers", () => {
+  render(<Home />);
+  // check if adds properly
+  const num1input = screen.getByTestId("num1");
+  const num2input = screen.getByTestId("num2");
+  const multiplyButton = screen.getByTestId("multiply");
+  const resultArea = screen.getByTestId("result");
+  fireEvent.change(num1input, { target: { value: 5 } });
+  fireEvent.change(num2input, { target: { value: 8 } });
+  fireEvent.click(multiplyButton);
+  expect(resultArea).toHaveTextContent("40");
+});
+
+it("divides numbers", () => {
+  render(<Home />);
+  // check if adds properly
+  const num1input = screen.getByTestId("num1");
+  const num2input = screen.getByTestId("num2");
+  const divideButton = screen.getByTestId("divide");
+  const resultArea = screen.getByTestId("result");
+  fireEvent.change(num1input, { target: { value: 20 } });
+  fireEvent.change(num2input, { target: { value: 2 } });
+  fireEvent.click(divideButton);
+  expect(resultArea).toHaveTextContent("10");
+});
